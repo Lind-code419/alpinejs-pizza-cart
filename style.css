@@ -1,22 +1,10 @@
 body {
     background-color: goldenrod;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image: url("./pizza-background.jpg");
 }
 
 
-
-.pizza {
-    border : 1px solid;
-    
-    padding: 1em;
-    border-radius: 0.5em;
-    margin: 1em;
-    background-color : white;
-    display: inline-block;
-    width: 28%;
-    
-      
-}
 .message {
     color: red;
     padding: 1em;
@@ -61,4 +49,34 @@ th, td {
     padding: 0.5em;
     max-width: 95%;
 
+}
+
+.small {
+    background-color: red;
+    border : 1px solid;
+    padding: 1em;
+    border-radius: 0.5em;
+    margin: 1em;
+    display: inline-block;
+    width: 28%;
+}
+
+.medium {
+    border : 1px solid;
+    padding: 1em;
+    border-radius: 0.5em;
+    margin: 1em;
+    background-color : white;
+    display: inline-block;
+    width: 28%;
+}
+
+.large {
+    border : 1px solid;
+    padding: 1em;
+    border-radius: 0.5em;
+    margin: 1em;
+    display: inline-block;
+    width: 28%;
+    background-color: green;
 }

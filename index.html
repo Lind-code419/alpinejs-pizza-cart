@@ -18,6 +18,8 @@
     <div class="outer-border">
         <h4>Shopping Cart: </h4>
         <div class="message" x-text="message"></div>
+        <div>Cart ID : <span x-text="cartId"></span>
+        </div>
         <table class="cart">
             <tr>
                 <th>Flavour</th>
@@ -57,14 +59,38 @@
 
 
         </table>
+        
+        <template x-for="pizza in pizzas">
+            <template x-if="pizza.size =='large'">
+                <div class="large">
+                    <h3 x-text="pizza.flavour"></h3>
+                    <span x-text="pizza.size"></span>
+                    <span x-text="pizza.price"></span>
+                    <button class="btn" @click="addPizza(pizza.id)">Add to cart</button>
+                </div>
+            </template>
+        </template>
 
         <template x-for="pizza in pizzas">
-            <div class="pizza">
-                <h3 x-text="pizza.flavour"></h3>
-                <span x-text="pizza.size"></span>
-                <span x-text="pizza.price"></span>
-                <button class="btn" @click="addPizza(pizza.id)">Add to cart</button>
-            </div>
+            <template x-if="pizza.size =='medium'">
+                <div class="medium">
+                    <h3 x-text="pizza.flavour"></h3>
+                    <span x-text="pizza.size"></span>
+                    <span x-text="pizza.price"></span>
+                    <button class="btn" @click="addPizza(pizza.id)">Add to cart</button>
+                </div>
+            </template>
+        </template>
+
+        <template x-for="pizza in pizzas">
+            <template x-if="pizza.size =='small'">
+                <div class="small">
+                    <h3 x-text="pizza.flavour"></h3>
+                    <span x-text="pizza.size"></span>
+                    <span x-text="pizza.price"></span>
+                    <button class="btn" @click="addPizza(pizza.id)">Add to cart</button>
+                </div>
+            </template>
         </template>
     </div>
 </body>
