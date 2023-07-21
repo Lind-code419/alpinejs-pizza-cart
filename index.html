@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API based Pizza Cart with AlpineJS</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="pizza.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body x-data="pizzaCart">
+    <h1 x-text="title"></h1>
+    <div class="outer-border">
+        <h4>Shopping Cart: </h4>
+        <div class="message" x-text="message"></div>
+        <table class="cart">
+            <tr>
+                <th>Flavour</th>
+                <th>Size</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+
+            <template x-for="pizza in cartPizzas">
+                <tr>
+                    <td x-text="pizza.flavour"></td>
+                    <td x-text="pizza.size"></td>
+                    <td>
+                        <button @click="addPizza(pizza.id)">+</button>
+                        x<span x-text="pizza.qty"></span>
+                        <button @click="removePizza(pizza.id)">-</button>
+                    </td>
+                    <td x-text="pizza.price"></td>
+
+                    <td x-text="pizza.total.toFixed(2)"></td>
+                </tr>
+
+            </template>
+
+            <tr>
+                <td colspan="4">Total</td>
+                <td colspan="1"><span x-text="cartTotal"></span></td>
+            </tr>
+
+            <tr>
+                <td colspan="3">Pay now: </td>
+                <td><input x-model="paymentAmount" type="text"></td>
+                <td><button @click="pay(paymentAmount)">Pay</button></td>
+            </tr>
+
+
+
+        </table>
+
+        <template x-for="pizza in pizzas">
+            <div class="pizza">
+                <h3 x-text="pizza.flavour"></h3>
+                <span x-text="pizza.size"></span>
+                <span x-text="pizza.price"></span>
+                <button class="btn" @click="addPizza(pizza.id)">Add to cart</button>
+            </div>
+        </template>
+    </div>
+</body>
+
+</html>
